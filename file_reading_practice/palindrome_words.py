@@ -51,3 +51,29 @@ Explanation:
 =================================================
 
 """
+
+def is_palindrome(word):
+    return word == word[::-1]
+
+def find_palindromes(filename):
+    palindromes = []
+    with open(filename, "r") as f:
+        for line in 
+            word = line.strip().lower()   
+            if is_palindrome(word):
+                palindromes.append(word)
+
+    for p in palindromes:
+        print(p)
+    print("Total palindromes:", len(palindromes))
+
+sample_words = [
+    "level", "radar", "hello", "noon",
+    "civic", "python", "deified", "racecar", "banana"
+]
+
+with open("sample.txt", "w") as f:
+    for w in sample_words:
+        f.write(w + "\n")
+
+find_palindromes("sample.txt")
