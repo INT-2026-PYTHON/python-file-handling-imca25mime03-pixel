@@ -40,3 +40,26 @@ Explanation:
 =================================================
 
 """
+
+def words_with_all_vowels(filename):
+    vowels = set("aeiou")
+    result = []
+
+    with open(filename, "r") as f:
+        for word in f:
+            w = word.strip().lower()
+            if vowels.issubset(set(w)):
+                result.append(w)
+
+    return result
+
+sample_words = ["education", "sequoia", "facetious", "hello", "audio", "unequivocal"]
+
+with open("sample.txt", "w") as f:
+    for w in sample_words:
+        f.write(w + "\n")
+
+result = words_with_all_vowels("sample.txt")
+print("Words with all vowels:")
+print(result)
+print("Total words with all vowels:", len(result))
